@@ -6,6 +6,12 @@ type inputProps = {
     placeholder: string;
     otherClass?: string;
 }
+type radioProps = {
+    title: string;
+    value: string;
+    name: string;
+    otherClass?: string;
+}
 type selectProps = {
     title: string;
     children: ReactNode;
@@ -18,10 +24,10 @@ const Form = () => {
             <h1 className="text-4xl mb-7">Generador de Documentos</h1>
             <form className="text-left flex flex-col h-8/10">
                 <div className="flex gap-5">
-                    <Input title="Nombre del Documento" placeholder="Ingrese el nombre del documento"/>
-                    <Select title="Responsable">
-                        <option value="">Elmer</option>
-                        <option value="">Soporte</option>
+                    <Input title="Nombre" placeholder="Ingrese el nombre del documento"/>
+                    <Select title="Encargado">
+                        <option value="">Elmer Velaquez</option>
+                        <option value="">Soporte Tecnico</option>
                     </Select>
                 </div>
                 <div className="flex gap-5">
@@ -31,14 +37,27 @@ const Form = () => {
                         <option value="">Soporte</option>
                     </Select>
                 </div>
+                <div className="flex gap-10 mt-2">
+                    <RadioButton title="Asignacion" value="interno" name="tipoDocumento"/>
+                    <RadioButton title="Descargo" value="interno" name="tipoDocumento"/>
+                </div>
+                
 
-
-                {/* <TextArea title="Notas Adicionales" placeholder="Escribe tus notas" /> */}
                 <Button otherClass="text-white max-w-60 mt-auto mb-0">Generar Documento</Button>
             </form>
         </div>
     )}
 
+const RadioButton = ({title, value, name, otherClass}:radioProps) => {
+    return(
+        <label className={`flex items-center cursor-pointer ${otherClass}`}>
+            <input type="radio" name={name} value={value} className="hidden peer" />
+            <span className="w-6 h-6 rounded-full border-2 peer-checked:border-blue-500 flex flex-col items-center justify-center transition-colors peer-checked:[&>div]:opacity-100">
+                <div className="w-4 h-4 bg-blue-500 rounded-full opacity-0"></div>
+            </span>
+            <span className="ml-2 text-gray-700 text-xl">{title}</span>
+        </label>
+    )}  
 const Select = ({children,title, otherClass}:selectProps) => {
     return(
         <label className="block mb-4 w-full">
