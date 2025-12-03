@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme{
+  --color-mint-500: #3f5f4f;
+  --color-primary: #1e40af;
+  --color-secondary: #374151;
+  --color-background: #111827;
+  --color-surface: #1f2937;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+}
+#root::-webkit-scrollbar { width: 10px };
+#root::-webkit-scrollbar-track { background: var(--color-background); };
+#root::-webkit-scrollbar-thumb { background-color: var(--color-surface); border-radius: 10px; border: 2px solid var(--color-surface); };
