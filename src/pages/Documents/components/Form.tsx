@@ -15,6 +15,7 @@ type radioProps = {
 type selectProps = {
     title: string;
     children: ReactNode;
+    placeholder?: string;
     otherClass?: string;
 }
 
@@ -23,25 +24,37 @@ const Form = () => {
         <div className="text-center text-black border-black h-full">  
             <h1 className="text-4xl mb-7">Generador de Documentos</h1>
             <form className="text-left flex flex-col h-8/10">
+                <div className="flex gap-10">
+                    <RadioButton title="Asignacion" value="interno" name="tipoDocumento"/>
+                    <RadioButton title="Descargo" value="interno" name="tipoDocumento"/>
+                </div>
+                <div className="flex gap-10 mt-5">
+                    <Select title="Tipo de Equipo" placeholder="Selecciona el tipo">
+                        <option value="">Laptop</option>
+                        <option value="">Mouse</option>
+                        <option value="">Teclado</option>
+                        <option value="">Monitor</option>
+                    </Select>
+                    <Select title="Modelo" placeholder="Selecciona el modelo">
+                        <option value="">ultra</option>
+                        <option value="">G15</option>
+                        <option value="">Thinkpad</option>
+                        <option value="">Legion</option>
+                    </Select>
+                    <Select title="Serie" placeholder="Selecciona el serial">
+                        <option value="">1xxx-xxx</option>
+                        <option value="">2xxx-xxx</option>
+                        <option value="">3xxx-xxx</option>
+                        <option value="">4xxx-xxx</option>
+                    </Select>
+                </div>
                 <div className="flex gap-5">
-                    <Input title="Nombre" placeholder="Ingrese el nombre del documento"/>
+                    <Input title="Responsable" placeholder="Ingrese el nombre del Responsable"/>
                     <Select title="Encargado">
                         <option value="">Elmer Velaquez</option>
                         <option value="">Soporte Tecnico</option>
                     </Select>
                 </div>
-                <div className="flex gap-5">
-                    <Input title="Nombre del Documento" placeholder="Ingrese el nombre del documento"/>
-                    <Select title="Responsable">
-                        <option value="">Elmer</option>
-                        <option value="">Soporte</option>
-                    </Select>
-                </div>
-                <div className="flex gap-10 mt-2">
-                    <RadioButton title="Asignacion" value="interno" name="tipoDocumento"/>
-                    <RadioButton title="Descargo" value="interno" name="tipoDocumento"/>
-                </div>
-                
 
                 <Button otherClass="text-white max-w-60 mt-auto mb-0">Generar Documento</Button>
             </form>
@@ -58,11 +71,12 @@ const RadioButton = ({title, value, name, otherClass}:radioProps) => {
             <span className="ml-2 text-gray-700 text-xl">{title}</span>
         </label>
     )}  
-const Select = ({children,title, otherClass}:selectProps) => {
+const Select = ({children,title,placeholder, otherClass}:selectProps) => {
     return(
         <label className="block mb-4 w-full">
             <span className="text-xl ml-2">{title}</span>
             <select className={`appearance-none block border-gray-300 rounded-lg border w-full text-xl p-2 mt-1 max-h-40 ${otherClass}`} >
+                <option value="" selected disabled className="text-gray-300">{placeholder}</option>
                 {children}
             </select>
         </label>
