@@ -2,7 +2,7 @@ import {useEffect, useState } from "react";
 import type { ModalProps } from "../../../types/global";
 
 
-export default ({isOpen,setIsOpen,children}:ModalProps) => {
+const Modal = ({isOpen,setIsOpen,children}:ModalProps) => {
   const [visible,setVisible] = useState(false);
   const [animacion,setAnimacion] = useState('');
 
@@ -31,3 +31,5 @@ export default ({isOpen,setIsOpen,children}:ModalProps) => {
     </div>
   )
 }
+
+export default Modal;
