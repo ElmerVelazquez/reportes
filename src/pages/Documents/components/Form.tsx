@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Button from "./Button";
+import React from "react";
 
 type inputProps = {
     title: string;
@@ -50,9 +51,9 @@ const Form = () => {
                 </div>
                 <div className="flex gap-5">
                     <Input title="Responsable" placeholder="Ingrese el nombre del Responsable"/>
-                    <Select title="Encargado">
+                    <Select title="Encargado" placeholder="Seleccione el encargado de entregar o recibir">
                         <option value="">Elmer Velaquez</option>
-                        <option value="">Soporte Tecnico</option>
+                        <option value="" className="text-gray-700">Soporte Tecnico</option>
                     </Select>
                 </div>
 
@@ -72,11 +73,12 @@ const RadioButton = ({title, value, name, otherClass}:radioProps) => {
         </label>
     )}  
 const Select = ({children,title,placeholder, otherClass}:selectProps) => {
+    const [value, setValue] = React.useState("placeholder");
     return(
         <label className="block mb-4 w-full">
             <span className="text-xl ml-2">{title}</span>
-            <select className={`appearance-none block border-gray-300 rounded-lg border w-full text-xl p-2 mt-1 max-h-40 ${otherClass}`} >
-                <option value="" selected disabled className="text-gray-300">{placeholder}</option>
+            <select onChange={(e)=>{setValue(e.target.value)}} className={`appearance-none block border-gray-300 rounded-lg border w-full text-xl p-2 mt-1 max-h-40 ${value=="placeholder"?"text-gray-500":""} ${otherClass}`} >
+                <option value="placeholder" selected disabled className="text-gray-300">{placeholder}</option>
                 {children}
             </select>
         </label>
