@@ -3,7 +3,7 @@ import type { itemProps } from "../../../types/global";
 import logoConcentra from "@assets/400x100_concentra.png"
 import logoInnovix from "@assets/400x100_innovix.png"
 
-export default ({children}:{children:ReactNode}) => {
+const List = ({children}:{children:ReactNode}) => {
   return(
 <div className="p-10 bg-gray-800 mt-10">
       <table className="border-spacing-y-2 border-separate text-center w-full">
@@ -37,4 +37,6 @@ export const ListItem = ({empresa,tipo,equipo,firmante,responsable,fecha}:itemPr
       <td className=" px-5 py-7 break-normal">{responsable}</td>
       <td className=" px-5 py-7 rounded-r-lg">{fecha}</td>
     </tr>    
-  )};  
+  )};
+  
+  export default List;
