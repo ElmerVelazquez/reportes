@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { DashboardIcon } from './icons/DashboardIcon';
 import { DocumentIcon } from './icons/DocumentIcon';
+import { EquiposIcon } from './icons/EquiposIcon';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -10,6 +11,7 @@ const Sidebar = () => {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: <DashboardIcon /> },
     { id: 'documents', label: 'Documentos', icon: <DocumentIcon /> },
+    { id: 'equipos', label: 'Equipos', icon: <EquiposIcon /> }
   ];
 
   return (
@@ -24,7 +26,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-4 left-4 h-full w-64 bg-surface border-r border-secondary z-60 transform origin-top-left transition-transform duration-300 ease-in-out ${
+        className={`fixed top-4 left-4 h-full w-64 bg-surface border-r z-60 border-background transform origin-top-left transition-transform duration-300 ease-in-out ${
   isOpen ? 'scale-100': 'scale-0'
 }`}
       >
