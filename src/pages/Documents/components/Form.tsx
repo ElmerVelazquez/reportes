@@ -57,11 +57,7 @@ const Form = () => {
                 </div>
                 <div className="flex gap-5">
                     <Input title="Responsable" placeholder="Ingrese el nombre del Responsable"/>
-<<<<<<< HEAD
-                    <Select title="Encargado" placeholder="Seleccione el encargado de entregar o recibir">
-=======
                     <Select title="Encargado" placeholder="Seleccione el encargado">
->>>>>>> 1e643ee15d30a29a9b2e82c0a7b968d6c9be86e3
                         <option value="">Elmer Velaquez</option>
                         <option value="" className="text-gray-700">Soporte Tecnico</option>
                     </Select>
@@ -84,11 +80,6 @@ const Select = ({children,title,placeholder, otherClass}:selectProps) => {
     const [value, setValue] = React.useState("placeholder");
     return(
         <label className="block mb-4 w-full">
-<<<<<<< HEAD
-            <span className="text-xl ml-2">{title}</span>
-            <select onChange={(e)=>{setValue(e.target.value)}} className={`appearance-none block border-gray-300 rounded-lg border w-full text-xl p-2 mt-1 max-h-40 ${value=="placeholder"?"text-gray-500":""} ${otherClass}`} >
-                <option value="placeholder" selected disabled className="text-gray-300">{placeholder}</option>
-=======
             <span className="text-xl ml-2">{title}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="absolute h-20 w-20 ml-1 top-2.5 right-2.5 text-slate-900">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
@@ -96,7 +87,6 @@ const Select = ({children,title,placeholder, otherClass}:selectProps) => {
             </span>
             <select className={`appearance-none block border-gray-300 rounded-lg border w-full text-xl p-2 mt-1 max-h-40 ${otherClass}`} >
                 <option value="" selected disabled className="text-gray-300">{placeholder}</option>
->>>>>>> 1e643ee15d30a29a9b2e82c0a7b968d6c9be86e3
                 {children}
 
             </select>
